@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+
+<h1>Lista de materias</h1>
+<a href="/materias/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Agregar</a>
+
+<% if (materias.length > 0) { %>
+<ul>
+    <% for (let m of materias) { %>
+        <li><%= m %></li>
+    <% } %>
+</ul>
+<% } else { %>
+    <h3>No hay mateiras registradas.</h3>
+<% } %>
+
+<%- include('../includes/foot.ejs') %>
