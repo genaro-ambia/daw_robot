@@ -4,7 +4,7 @@ const path = require('path');
 const materias = ["Sistemas digitales", "Fundamentos de programacion"];
 
 router.get('/new', (request, response, next) => {
-    response.render(path.join('materias','new.ejs')); 
+    response.render(path.join('robots','new.ejs')); 
 });
 
 router.post('/new', (request, response, next) => {
@@ -16,6 +16,7 @@ router.post('/new', (request, response, next) => {
 router.get('/', (request, response, next) => {
     response.render(path.join('materias','list.ejs'), {
         materias: materias,
+
     }); 
 });
 
