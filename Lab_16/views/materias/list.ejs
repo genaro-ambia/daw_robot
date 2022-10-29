@@ -1,0 +1,26 @@
+<%- include('../includes/head.ejs') %>
+
+<h1>Lista de materias</h1>
+<a href="/materias/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Agregar</a>
+
+<% if (materias.length > 0) { %>
+    <div class="row">
+        <% for (let m of materias) { %>
+            <div class="col s12 m4 l3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BMDkzYmJjNTEtYTM4MS00MDA3LTgwMjgtYzM4NWRkZDdkMGNlXkEyXkFqcGdeQXVyMTQxMjk0Mg@@._V1_.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= m.nombre %></h5>
+                      <p class="card-text"><%= m.clave %></p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+      <%  } %>
+    </div>
+<% } else { %>
+    <h3>No hay materias registradas.</h3>
+<% } %>
+
+<%- include('../includes/foot.ejs') %>
