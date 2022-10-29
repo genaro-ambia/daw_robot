@@ -23,4 +23,8 @@
     <h3>No hay materias registradas.</h3>
 <% } %>
 
+<% if (ultima_materia != '') { %>
+    <p>La ultima materia registrada fue: <%= ultima_materia %></p>
+<% } %>
+
 <%- include('../includes/foot.ejs') %>
