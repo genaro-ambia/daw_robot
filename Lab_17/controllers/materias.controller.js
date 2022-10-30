@@ -1,6 +1,5 @@
-const { info, error } = require('console');
 const path = require('path');
-const Materia = require('../models/materia.model')
+const Materia = require('../models/materia.model');
 
 exports.get_new = (request, response, next) => {
     response.render(path.join('materias','new.ejs'),{
