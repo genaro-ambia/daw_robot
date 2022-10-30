@@ -2,7 +2,9 @@ const path = require('path');
 const Materia = require('../models/materia.model')
 
 exports.get_new = (request, response, next) => {
-    response.render(path.join('materias','new.ejs')); 
+    response.render(path.join('materias','new.ejs'),{
+        info: '',
+    }); 
 };
 
 exports.post_new = (request, response, next) => {
@@ -14,8 +16,15 @@ exports.post_new = (request, response, next) => {
 };
 
 exports.get_root = (request, response, next) => {
-    response.render(path.join('materias','list.ejs'), {
-        materias: Materia.fetchAll(),
-        ultima_materia: request.session.ultima_materia ? request.session.ultima_materia : '',
-    }); 
+    let info = request.session.info ? request.session.info : '';
+    request.session.info = '';
+    Materia.fetchAll().then(([rows, fieldData]) => {
+        response.render(path.join('materias', 'list.ejs'),{
+            materias: rows,
+            ultima_materia: request.session.ultima_materia ? request.session.ultima_materia : '',
+            info: info,
+        });
+    }).catch( (error) => {
+        console.log(error);
+    });
 };

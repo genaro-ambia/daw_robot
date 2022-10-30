@@ -3,7 +3,7 @@ const materias = [
     {nombre: 'Fundamentos de programacion', clave: "TC1014", profesor: "Jorge Ramirez"}
 ];
 
-module.exports = class Robot {
+module.exports = class Materia {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
     constructor(mi_nombre, mi_clave, mi_profesor) {
