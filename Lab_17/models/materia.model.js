@@ -10,16 +10,14 @@ module.exports = class Robot {
         this.unidades = mi_unidades ? mi_unidades : 8;
     }
 
-    //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
         return db.execute(
             'INSERT INTO materias (ID_materia, nombre, profesor, unidades) VALUES(?, ?, ?, ?)',
             [this.clave, this.nombre, this.profesor, this.unidades]);
     }
 
-    //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return db.execute('SELECT * FROM materias')
+        return db.execute('SELECT * FROM materias');
     }
 
     static fetchOne(ID_materia){

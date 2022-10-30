@@ -37,7 +37,7 @@ exports.post_edit = (request, response, next) => {
 
 
 exports.post_new = (request, response, next) => {
-    const materia = new Materia(request.body.nombre, request.body.clave);
+    const materia = new Materia(request.body.ID_materia, request.body.nombre, request.body.profesor, request.unidades);
     materia.save()
         .then( () => {
             request.session.ultima_materia = materia.nombre;
