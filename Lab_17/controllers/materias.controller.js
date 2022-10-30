@@ -51,10 +51,8 @@ exports.post_new = (request, response, next) => {
 };
 
 exports.get_root = (request, response, next) => {
-    response.render(path.join('materias','list.ejs'), {
-        materias: Materia.fetchAll(),
-        ultima_materia: request.session.ultima_materia ? request.session.ultima_materia : '',
-    }); 
+    let info = request.session.info ? request.session.info : '';
+    request.session.info = '';
 
     Materia.fetchAll()
     .then( ([rows, fieldData]) => {
