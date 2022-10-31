@@ -1,0 +1,26 @@
+<h1>Registrar materia</h1>
+<form action="/materias/new" method="POST">
+<% if (materia === '') { %>
+    <form action="/materias/new" method="POST">
+<% } else { %>
+    <form action="/materias/edit" method="POST">
+    <input type="hidden" id="id" name="id" value="<%= materia.ID_materia %>">
+<% } %>    
+    <label for="nombre">ID de la materia: </label>
+    <input type="text" id="nombre" name="nombre" value="<%= materia.ID_materia ? materia.ID_materia : '' %>">>
+    <br>
+    <br>
+    <label for="clave">Nombre de la materia: </label>
+    <input type="text" id="clave" name="clave" value="<%= materia.nombre ? materia.nombre : '' %>">>
+    <br>
+    <br>
+    <label for="clave">Profesor de la materia: </label>
+    <input type="text" id="clave" name="clave" value="<%= materia.profesor ? materia.profesor : '' %>">>
+    <br>
+    <br>
+    <label for="clave">Unidades de la materia: </label>
+    <input type="text" id="clave" name="clave" value="<%= materia.unidades ? materia.unidades : '' %>">>
+    <br>
+    <br>
+    <input type="submit" id="enviar" name="enviar" value="Registrar">
+</form>
