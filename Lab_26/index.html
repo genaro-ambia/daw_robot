@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title> Laboratorio 1 </title>
+</head>
+
+<body>
+    <header>
+        <h1 style="color: red;">pokemon </h1>
+        <p id="pokemon"></p>
+        <div>
+            <label for="uname">Choose a pokemon: </label>
+            <input type="text" id="pkmn" name="pokemon" />
+        </div>
+        <div>
+            <button onclick="pocket()">Submit</button>
+        </div>
+        <script>
+            const pocket = () =>{
+                fetch('https://pokeapi.co/api/v2/pokemon/' + document.getElementById('pkmn').value, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }).then(result => {
+                    return result.json();
+                }).then(data => {
+                    console.log(data.name);
+                    console.log(data.id);
+                    let html = '';
+                    html += data.name;
+                    html += '<br></br>';
+                    html += data.id;
+                    html += '<br></br>';
+
+                    document.getElementById('pokemon').innerHTML = html;
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        </script>
+    </header>
+
+<footer>
+    IDE utilizado: Visual Studio code -<a href=" https://code.visualstudio.com">IDE</a> 
+</footer>
+
+</body>
+
+</html>
